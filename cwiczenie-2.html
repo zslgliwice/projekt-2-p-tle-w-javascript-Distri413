@@ -23,7 +23,38 @@
 	
 		function generuj()
 		{
-			
+			let x = document.getElementById('x').value;
+            		let wynikDiv = document.getElementById('wynik');
+
+            		wynikDiv.innerHTML = '';
+
+            		if(isNaN(x) || x === ''){
+                		wynikDiv.innerHTML = 'Podane x nie jest liczbą!';
+                		return;
+            		}
+
+            		x = parseInt(x);
+
+            		if(x < 0){
+                		wynikDiv.innerHTML = 'Podane x jest ujemne';
+                		return;
+            		}else if(x === 0) {
+                		wynikDiv.innerHTML = 'Podane x jest równe zero!';
+               			return;
+            		}
+
+            		let liczbyParzyste = '';
+            		let liczbyNieparzyste = '';
+
+            		for(let i = 1; i <= x; i++) {
+                		if(i % 2 === 0) {
+                    			liczbyParzyste += i + ' ';
+                		}else{
+                    			liczbyNieparzyste += i + ' ';
+                		}
+            		}
+
+	            	wynikDiv.innerHTML = 'Liczby parzyste: ' + liczbyParzyste + 'Liczby nieparzyste: ' + liczbyNieparzyste;
 		}
 
 	</script>
