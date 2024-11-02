@@ -23,7 +23,34 @@
 	
 		function sledztwo()
 		{
-			
+			const liczba = parseInt(document.getElementById("liczba").value);
+			const wynikDiv = document.getElementById("wynik");
+
+			wynikDiv.innerHTML = "";
+
+			if(isNaN(liczba) || liczba < 0 || liczba > 9){
+				wynikDiv.innerHTML = "No sh*t Sherlock!";
+				return;
+			}
+			  
+			let output = "";  
+            		for (let i = 0; i <= 9; i++) {
+                		let info;
+                		if (i === liczba) {
+                    			info = `${i} jest mordercą! Aresztuj je, Watsonie!`;
+                		} else {
+                    			const roznica = Math.abs(i - liczba);
+                    			if (i < liczba) {
+                        			info = `${i} jest niewinne, jest o ${roznica} mniejsze niż morderca.`;
+                    			} else {
+                        			info = `${i} jest niewinne, jest o ${roznica} większe niż morderca.`;
+                    			}
+               	 		}
+
+                		output += `<p>${info}</p>`;
+            		}
+
+            		wynikDiv.innerHTML = output;
 		}
 
 	</script>
